@@ -7,16 +7,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-# -------------------------
-# Configuration
-# -------------------------
+
 DATA_DIR = "data/raw"
 SAMPLE_IMAGES_PER_CLASS = 5
 CSV_OUTPUT = "data/metadata.csv"
 
-# -------------------------
-# Helper Functions
-# -------------------------
+
 def get_categories(data_dir):
     """List top-level categories in dataset."""
     categories = [d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))]
@@ -116,9 +112,7 @@ def save_metadata(df, csv_path=CSV_OUTPUT):
     df.to_csv(csv_path, index=False)
     print(f"\nMetadata saved to: {csv_path}")
 
-# -------------------------
-# Main EDA Routine
-# -------------------------
+
 def run_eda():
     print("=== Dataset Categories ===")
     categories = get_categories(DATA_DIR)
@@ -142,8 +136,6 @@ def run_eda():
     print("\n=== Saving Metadata CSV ===")
     save_metadata(df)
 
-# -------------------------
-# Entry Point
-# -------------------------
+
 if __name__ == "__main__":
     run_eda()
